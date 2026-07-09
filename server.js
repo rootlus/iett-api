@@ -571,7 +571,7 @@ app.get("/api/durak/:durakKodu/arrivals", asyncHandler(async (req, res) => {
     if (isNaN(vLat) || isNaN(vLng)) return false;
     const dist = getDistance(stopLat, stopLng, vLat, vLng);
     v.distance = dist;
-    return dist <= 1500;
+    return dist <= 3500;
   });
 
   if (nearbyCandidates.length === 0) {
@@ -592,7 +592,7 @@ app.get("/api/durak/:durakKodu/arrivals", asyncHandler(async (req, res) => {
   const allDuties = await getDailyDuties(bugunStr);
 
   console.log(`🔍 [ARRIVALS] Durak: ${durakKodu}, Koordinatlar: ${stopLat}, ${stopLng}`);
-  console.log(`🔍 [ARRIVALS] Toplam araç: ${fleetVehicles.length}, Yakın aday (1.5km): ${nearbyCandidates.length}`);
+  console.log(`🔍 [ARRIVALS] Toplam araç: ${fleetVehicles.length}, Yakın aday (3.5km): ${nearbyCandidates.length}`);
 
   const uniqueHats = new Set();
   const vehicleHats = [];
@@ -705,7 +705,7 @@ app.get("/api/durak/:durakKodu/arrivals", asyncHandler(async (req, res) => {
   }
 
   arrivals.sort((a, b) => a.minutes - b.minutes);
-  res.json(arrivals.slice(0, 5));
+  res.json(arrivals.slice(0, 10));
 }));
 
 app.get("/api/tekil-arac-konum/:hatKodu/:kapino", handleTekilAracKonum);
