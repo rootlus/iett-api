@@ -1,6 +1,8 @@
 # Kurulum:
-```npm init -y```
- `npm install express cors soap xml2js`
+```bash
+npm init -y
+npm install express cors soap xml2js
+```
  
  # Çalıştırma:
  `node server.js` (varsayılan port 3000, "PORT" .env değişkeniyle değiştirilebilir)
