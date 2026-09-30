@@ -1,8 +1,6 @@
 /**
  * İBB İETT GeoJSON API — tek dosyalık backend
  * -------------------------------------------
- * İstanbul Büyükşehir Belediyesi'nin SOAP servislerini (durak, garaj, filo, duyuru)
- * çekip GeoJSON / JSON olarak sunan minimal Express API.
  */
 
 const express = require('express');
